@@ -12,7 +12,8 @@ node_modules/
 /.next/
 /out/git rm -r --cached .
 
-# production
+# productionlx
+
 /build
 
 # misc
