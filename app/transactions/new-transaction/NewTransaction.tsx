@@ -6,4 +6,4 @@ export const NewTransactionForm = () => {
                 <input type="text" name="name" id="name"/>
             </fieldset>
          </form>)
-}
+         }

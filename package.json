@@ -4,7 +4,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint --ext .ts,.tsx"
+    "lint": "eslint --ext .ts,.tsx",
+    "prepare": "husky install",
+    "test": ""
   },
   "dependencies": {
     "next": "latest",
@@ -34,6 +36,6 @@
   "husky": {
     "hooks": {
       "pre-commit": "pretty-quick --staged && npm run lint"
-     }
+    }
   }
 }
