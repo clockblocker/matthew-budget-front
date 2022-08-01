@@ -2,6 +2,7 @@ import React, { Dispatch, Context } from 'react';
 import { createContext, useReducer, useEffect } from 'react';
 import { csv2jsonAsync, csv2json } from 'json-2-csv';
 import produce from 'immer';
+import { Guid } from 'guid-typescript';
 
 import { Transaction } from '../types';
 import { transactionOrNullFromObject, notEmpty } from '../typecasts';
@@ -60,19 +61,19 @@ type TransactionAction = {
 };
 
 interface TransactionsContext {
-  transactions: Record<number, Transaction>;
+  transactions: Record<string, Transaction>;
   dispatch: Dispatch<TransactionAction>;
 }
 
 const transactionsReducer = (
-  state: Record<number, Transaction>,
+  state: Record<string, Transaction>,
   action: TransactionAction
 ) => {
   const nextState = produce(state, (draft) => {
     switch (action.type) {
       case TransactionActionType.CREATE: {
         action.transactions.forEach((transaction) => {
-          const id = Object.keys(state).length + 1;
+          const id = Guid.create().toString();
           draft[id] = { ...transaction, id };
         });
         break;
@@ -85,7 +86,7 @@ const transactionsReducer = (
       }
       case TransactionActionType.UPDATE: {
         action.transactions.forEach(({ id, ...rest }) => {
-          draft[id] = { id: Object.keys(state).length + 1, ...rest };
+          draft[id] = { id: Guid.create().toString(), ...rest };
         });
       }
       default: {
@@ -100,14 +101,19 @@ const TransactionsContext: Context<TransactionsContext> = createContext(
   {} as TransactionsContext
 );
 
-let parsedTransactions: Record<number, Transaction> = [];
+let parsedTransactions: Record<string, Transaction> = {};
 
 csv2jsonAsync(dummyCsvState)
   .then((data) => {
     parsedTransactions = Object.fromEntries(
       (
         data
-          .map((row, i) => transactionOrNullFromObject({ ...row, id: i }))
+          .map((row) =>
+            transactionOrNullFromObject({
+              ...row,
+              id: Guid.create().toString(),
+            })
+          )
           .filter((t) => notEmpty(t)) as Transaction[]
       ).map(({ id, ...rest }) => [id, { id, ...rest }])
     );
@@ -132,7 +138,7 @@ const TransactionsProvider = ({
   //   csv2jsonAsync(dummyCsvState)
   //     .then((data) => {
   //       const parsedTransactions: Transaction[] = data
-  //         .map((row, i) => transactionOrNullFromObject({ ...row, id: i }))
+  //         .map((row, i) => transactionOrNulAlFromObject({ ...row, id: i }))
   //         .filter((t) => notEmpty(t)) as Transaction[];
   //       console.log(parsedTransactions);
   //     })

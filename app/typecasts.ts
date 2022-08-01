@@ -1,5 +1,6 @@
 import { TimePeriod, Transaction } from './types';
 import { TransactionMandatoryFields, TransactionOptinalFields } from './types';
+import { Guid } from 'guid-typescript';
 
 const getKeys = <T>(obj: T) => Object.keys(obj) as Array<keyof T>;
 
@@ -18,7 +19,7 @@ export const makeDummyTimePeriod: () => TimePeriod = () => ({
 
 export const makeDummyTransactionWithMandatoryFields: () => TransactionMandatoryFields =
   () => ({
-    id: -1,
+    id: Guid.create().toString(),
     amount: 0,
     timePeriod: makeDummyTimePeriod(),
   });
@@ -62,9 +63,9 @@ export const transactionMandatoryFieldsOrNullFromObject = (
   const mf = makeDummyTransactionWithMandatoryFields();
   if ('timePeriod' in o && typeof o.timePeriod == 'object') {
     const tp = timePeriodOrNullFromObject(o.timePeriod);
-    if (tp && 'id' in o && typeof parseInt(`${o.id}`) == 'number') {
+    if (tp && 'id' in o && typeof o.id === 'string') {
       mf.timePeriod = tp;
-      mf.id = parseInt(`${o.id}`);
+      mf.id = o.id;
 
       if ('amount' in o && typeof parseFloat(`${o.amount}`) == 'number') {
         mf.amount = parseFloat(`${o.amount}`);

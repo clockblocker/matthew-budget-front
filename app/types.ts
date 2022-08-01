@@ -4,7 +4,7 @@ export type TimePeriod = {
 };
 
 export type TransactionMandatoryFields = {
-  id: number;
+  id: string;
   amount: number;
   timePeriod: TimePeriod;
 };
