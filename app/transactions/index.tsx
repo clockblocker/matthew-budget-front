@@ -1,6 +1,7 @@
 import type { NextPage } from 'next';
 import styled from 'styled-components';
 import { EditTransactionForm } from './edit-transaction/EditTransaction';
+import { TransactionRow } from './TransactionRow';
 
 const PageContainer = styled.section`
   background-color: #222536;
@@ -43,9 +44,7 @@ const ContentContainer = styled.section`
 const Transactions: NextPage = () => {
   return (
     <PageContainer>
-      <ContentContainer>
-        <EditTransactionForm />
-      </ContentContainer>
+      <ContentContainer>{}</ContentContainer>
     </PageContainer>
   );
 };

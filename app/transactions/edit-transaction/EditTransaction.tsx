@@ -9,7 +9,7 @@ export const EditTransactionForm = () => {
       </label>
       <label className="input">
         <input className="input__field" type="text" placeholder=" " />
-        <span className="input__label">Category</span>
+        <span className="input__label">Category</span> 
       </label>
       <div className="button-group">
         <button>Send</button>
