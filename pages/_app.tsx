@@ -7,7 +7,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   const themes = {
     light: {
       foreground: '#000000',
-      background: '#eeeeee',
+          background: '#eeeeee',
     },
     dark: {
       foreground: '#ffffff',

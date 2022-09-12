@@ -6,7 +6,7 @@
     "plugin:prettier/recommended",
     "plugin:prettier/react",
     "plugin:prettier/@typescript-eslint",
-    "next/core-web-vitals",
+    "next/core-web-vitals"
   ],
   "plugins": [
     "@typescript-eslint",
@@ -20,4 +20,3 @@
     "React": "writable"
   }
 }
-

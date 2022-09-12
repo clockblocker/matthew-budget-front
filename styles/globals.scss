@@ -1,139 +1,84 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 @import url('https://rsms.me/inter/inter.css');
+// #app {
+//   height: 100%;
+// }
+// html,
+// body {
+//   position: relative;
+//   height: 100%;
+// }
 
-:root {
-  --color-light: #222536;
-  --color-dark: #white;
-  --color-signal: #fab700;
+// body {
+//   background: #eee;
+//   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+//   font-size: 14px;
+//   color: #000;
+//   margin: 0;
+//   padding: 0;
+// }
 
-  --color-background: var(--color-light);
-  --color-text: var(--color-dark);
-  --color-accent: var(--color-signal);
+// body {
+//   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+//   font-size: 14px;
+//   color: #000;
+//   margin: 0;
+//   padding: 0;
+// }
 
-  --size-bezel: 0.5rem;
-  --size-radius: 4px;
+// .swiper {
+//   margin: 100px auto;
+//   width: 320px;
+//   height: 240px;
+// }
 
-  line-height: 1.4;
+// .swiper-slide {
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   font-size: 22px;
+//   font-weight: bold;
+//   color: #fff;
+// }
 
-  font-family: 'Inter', sans-serif;
-  font-size: calc(0.6rem + 0.4vw);
-  color: var(--color-text);
-  background: var(--color-background);
-  font-weight: 300;
-}
+// .swiper-slide:nth-child(1n) {
+//   background-color: rgb(206, 17, 17);
+// }
 
-h1,
-h2,
-h3 {
-  font-weight: 900;
-}
+// .swiper-slide:nth-child(2n) {
+//   background-color: rgb(0, 140, 255);
+// }
 
-mark {
-  background: var(--color-accent);
-  color: var(--color-text);
-  font-weight: bold;
-  padding: 0 0.2em;
-}
+// .swiper-slide:nth-child(3n) {
+//   background-color: rgb(10, 184, 111);
+// }
 
-.card {
-  background: var(--color-background);
-  padding: calc(4 * var(--size-bezel));
-  margin-top: calc(4 * var(--size-bezel));
-  border-radius: var(--size-radius);
-  border: 3px solid var(--color-shadow, currentColor);
-  box-shadow: 0.5rem 0.5rem 0 var(--color-shadow, currentColor);
+// .swiper-slide:nth-child(4n) {
+//   background-color: rgb(211, 122, 7);
+// }
 
-  &--inverted {
-    --color-background: var(--color-dark);
-    color: var(--color-light);
-    --color-shadow: var(--color-accent);
-  }
+// .swiper-slide:nth-child(5n) {
+//   background-color: rgb(118, 163, 12);
+// }
 
-  &--accent {
-    --color-background: var(--color-signal);
-    --color-accent: var(--color-light);
-    color: var(--color-dark);
-  }
+// .swiper-slide:nth-child(6n) {
+//   background-color: rgb(180, 10, 47);
+// }
 
-  *:first-child {
-    margin-top: 0;
-  }
-}
+// .swiper-slide:nth-child(7n) {
+//   background-color: rgb(35, 99, 19);
+// }
 
-.l-design-widht {
-  max-width: 40rem;
-  padding: 1rem;
-}
+// .swiper-slide:nth-child(8n) {
+//   background-color: rgb(0, 68, 255);
+// }
 
-.input {
-  position: relative;
+// .swiper-slide:nth-child(9n) {
+//   background-color: rgb(218, 12, 218);
+// }
 
-  &__label {
-    position: absolute;
-    left: 0;
-    top: 0;
-    padding: calc(var(--size-bezel) * 0.75) calc(var(--size-bezel) * 0.5);
-    margin: calc(var(--size-bezel) * 0.75 + 3px) calc(var(--size-bezel) * 0.5);
-    background: pink;
-    white-space: nowrap;
-    transform: translate(0, 0);
-    transform-origin: 0 0;
-    background: var(--color-background);
-    transition: transform 120ms ease-in;
-    font-weight: bold;
-    line-height: 1.2;
-  }
-  &__field {
-    box-sizing: border-box;
-    display: block;
-    width: 100%;
-    border: 3px solid currentColor;
-    padding: calc(var(--size-bezel) * 1.5) var(--size-bezel);
-    color: currentColor;
-    background: transparent;
-    border-radius: var(--size-radius);
-
-    &:focus,
-    &:not(:placeholder-shown) {
-      & + .input__label {
-        transform: translate(0.25rem, -65%) scale(0.8);
-        color: var(--color-accent);
-      }
-    }
-  }
-}
-
-.button-group {
-  margin-top: calc(var(--size-bezel) * 2.5);
-}
-
-button {
-  color: currentColor;
-  padding: var(--size-bezel) calc(var(--size-bezel) * 2);
-  background: var(--color-accent);
-  border: none;
-  border-radius: var(--size-radius);
-  font-weight: 900;
-
-  &[type='reset'] {
-    background: var(--color-background);
-    font-weight: 200;
-  }
-}
-
-button + button {
-  margin-left: calc(var(--size-bezel) * 2);
-}
-
-.icon {
-  display: inline-block;
-  width: 1em;
-  height: 1em;
-  margin-right: 0.5em;
-}
-
-.hidden {
-  display: none;
-}
+// .swiper-slide:nth-child(10n) {
+//   background-color: rgb(54, 94, 77);
+// }
