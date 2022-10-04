@@ -26,3 +26,7 @@ export const TransactionZ = z.object({
 });
 
 export type Transaction = z.infer<typeof TransactionZ>;
+
+function nextTimePeriod({ start, end }: TimePeriod) {
+  return { start, end };
+}
